@@ -1,4 +1,4 @@
-# IndywidualnyProjektProgramistyczny
+# Indywidualny Projekt Programistyczny
 ## Biblioteka z filmami, serialami i książkami
 ### Używane technologie:
 * Android Studio (Java)
