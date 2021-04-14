@@ -16,7 +16,7 @@
             android:parentActivityName=".MainActivity"
         />
         <activity
-            android:name=".ListaPotraw"
+            android:name=".ListaElem"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

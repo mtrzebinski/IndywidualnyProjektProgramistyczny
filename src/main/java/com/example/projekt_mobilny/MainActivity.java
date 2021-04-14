@@ -12,8 +12,8 @@ import android.widget.Spinner;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText nazwa_p; 
-    Spinner mySpinner; 
+    EditText nazwa_p;
+    Spinner mySpinner;
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void searchBtn(View view) {
-        final String nazwa= nazwa_p.getText().toString();
+        final String nazwa = nazwa_p.getText().toString();
         final String kategorie = mySpinner.getSelectedItem().toString();
 
+        background bg = new background(new AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Intent intent;
+                intent = new Intent(getApplicationContext(), ListaElem.class);
+                intent.putExtra("output", output);
+                intent.putExtra("nazwa", nazwa);
+                intent.putExtra("kategoria", kategorie);
+                startActivity(intent);
+            }
+        });
+        bg.execute(nazwa, kategorie);
     }
 
 }
