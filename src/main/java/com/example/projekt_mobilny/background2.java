@@ -1,6 +1,14 @@
 package com.example.projekt_mobilny;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.view.Gravity;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -13,28 +21,42 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-
-public class background extends AsyncTask<String, Void, String> {
-
-    public AsyncResponse delegate = null;
-    public background(AsyncResponse asyncResponse) {
-        delegate = asyncResponse;
+public class background2 extends AsyncTask<String, Void, String> {
+    AlertDialog dialog;
+    Context context;
+    public Boolean login = false;
+    public background2(Context context)
+    {
+        this.context = context;
     }
 
+    @Override
+    protected void onPreExecute() {
+        dialog = new AlertDialog.Builder(context).create();
+        dialog.setTitle("INFO");
+    }
 
     @Override
     protected void onPostExecute(String s) {
-        delegate.processFinish(s);
+        dialog.setMessage(s);
+        dialog.setButton(dialog.BUTTON_NEGATIVE,"OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+
     }
 
     @Override
     protected String doInBackground(String ...voids)
     {
-        String result="";
+        String result = "";
         String nazwa = voids[0];
         String kategorie = voids[1];
 
-        String connstr="http://192.168.8.110/search1.php";
+        String connstr = "";
         try {
             URL url = new URL(connstr);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
@@ -53,11 +75,10 @@ public class background extends AsyncTask<String, Void, String> {
 
             InputStream ips = http.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(ips,"ISO-8859-1"));
-            String line ="";
+            String line = "";
             while ((line = reader.readLine()) != null)
             {
                 result += line+"\n";
-
             }
             reader.close();
             ips.close();
@@ -71,6 +92,4 @@ public class background extends AsyncTask<String, Void, String> {
         }
         return result;
     }
-
-
 }
