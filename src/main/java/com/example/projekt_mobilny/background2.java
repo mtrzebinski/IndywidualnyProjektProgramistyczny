@@ -56,7 +56,7 @@ public class background2 extends AsyncTask<String, Void, String> {
         String nazwa = voids[0];
         String kategorie = voids[1];
 
-        String connstr = "";
+        String connstr = "http://192.168.8.110/search2.php";
         try {
             URL url = new URL(connstr);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
