@@ -48,4 +48,9 @@ public class MainActivity extends AppCompatActivity {
         bg.execute(nazwa, kategorie);
     }
 
+    public void Dodaj(View view) {
+        Intent intent;
+        intent = new Intent(getApplicationContext(), NowyElem.class);
+        startActivity(intent);
+    }
 }

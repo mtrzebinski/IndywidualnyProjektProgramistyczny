@@ -35,6 +35,13 @@
             android:text="Search"
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="Dodaj"
+            android:text="Add new object"
+            />
+
     </LinearLayout>
 
 </RelativeLayout>
