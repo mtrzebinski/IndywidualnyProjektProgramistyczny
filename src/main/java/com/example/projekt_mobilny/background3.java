@@ -3,6 +3,7 @@ package com.example.projekt_mobilny;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -54,7 +55,7 @@ public class background3 extends AsyncTask<String, Void, String> {
         String autor = voids[2];
         String opis = voids[3];
 
-        String connstr="";
+        String connstr="http://192.168.8.110/search3.php";
         try {
             URL url = new URL(connstr);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
