@@ -12,9 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".NowaPotrawa"
-            android:parentActivityName=".MainActivity"
-        />
+            android:name=".NowyElem"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ListaElem"
             android:parentActivityName=".MainActivity" />

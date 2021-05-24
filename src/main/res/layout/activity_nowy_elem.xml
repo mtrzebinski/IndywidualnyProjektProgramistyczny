@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".NowyElem">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,30 +17,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:id="@+id/nazwa"
-            android:gravity="center" />
+            android:id="@+id/nowa_nazwa"
+            android:hint="Name of the object"
+            />
 
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/spinner2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/sklady"
+            android:hint="Author/Director"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/opis"
+            android:hint="Description"
             />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="searchBtn"
-            android:text="Search"
-            />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="Dodaj"
-            android:text="Add new object"
+            android:onClick="DodajNowe"
+            android:text="Add New"
             />
 
     </LinearLayout>
-
 </RelativeLayout>
